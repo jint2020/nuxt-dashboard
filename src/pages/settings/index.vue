@@ -14,17 +14,17 @@ const neutrals = ['slate', 'gray', 'zinc', 'neutral', 'stone'] as const
     <div class="flex items-center gap-3">
       <UButton
         :label="'浅色'"
-        :color="colorMode.value === 'light' ? 'primary' : 'neutral'"
-        :variant="colorMode.value === 'light' ? 'solid' : 'outline'"
+        :color="colorMode === 'light' ? 'primary' : 'neutral'"
+        :variant="colorMode === 'light' ? 'solid' : 'outline'"
         icon="i-lucide-sun"
-        @click="colorMode.value = 'light'"
+        @click="colorMode = 'light'"
       />
       <UButton
         :label="'深色'"
-        :color="colorMode.value === 'dark' ? 'primary' : 'neutral'"
-        :variant="colorMode.value === 'dark' ? 'solid' : 'outline'"
+        :color="colorMode === 'dark' ? 'primary' : 'neutral'"
+        :variant="colorMode === 'dark' ? 'solid' : 'outline'"
         icon="i-lucide-moon"
-        @click="colorMode.value = 'dark'"
+        @click="colorMode = 'dark'"
       />
     </div>
   </UPageCard>

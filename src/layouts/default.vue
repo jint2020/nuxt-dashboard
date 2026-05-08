@@ -79,9 +79,10 @@ const groups = computed(() => [
             name="akar-icons:vue-fill"
             class="size-7 shrink-0 rounded bg-linear-to-tr from-primary to-secondary"
           />
-          <span v-if="!collapsed" class="font-semibold text-lg tracking-wide"
-            >工单系统</span
-          >
+          <span
+            v-if="!collapsed"
+            class="font-semibold text-lg tracking-wide"
+          >工单系统</span>
         </RouterLink>
       </template>
 
