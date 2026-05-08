@@ -37,6 +37,28 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/settings': RouteRecordInfo<
+      '/settings',
+      '/settings',
+      Record<never, never>,
+      Record<never, never>,
+      | '/settings/'
+      | '/settings/permissions'
+    >,
+    '/settings/': RouteRecordInfo<
+      '/settings/',
+      '/settings',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/settings/permissions': RouteRecordInfo<
+      '/settings/permissions',
+      '/settings/permissions',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
   }
 
   /**
@@ -53,6 +75,26 @@ declare module 'vue-router/auto-routes' {
     'src/pages/index.vue': {
       routes:
         | '/'
+      views:
+        | never
+    }
+    'src/pages/settings.vue': {
+      routes:
+        | '/settings'
+        | '/settings/'
+        | '/settings/permissions'
+      views:
+        | 'default'
+    }
+    'src/pages/settings/index.vue': {
+      routes:
+        | '/settings/'
+      views:
+        | never
+    }
+    'src/pages/settings/permissions.vue': {
+      routes:
+        | '/settings/permissions'
       views:
         | never
     }

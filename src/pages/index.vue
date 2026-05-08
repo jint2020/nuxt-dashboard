@@ -16,6 +16,12 @@
       </UDashboardNavbar>
     </template>
 
-    <template #body />
+    <template #body>
+      <div class="flex flex-col gap-4 sm:gap-6 lg:gap-12 w-full lg:max-w-2xl mx-auto">
+        <h1 class="text-2xl font-bold tracking-tight">
+          欢迎来到工单系统！
+        </h1>
+      </div>
+    </template>
   </UDashboardPanel>
 </template>
