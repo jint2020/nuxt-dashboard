@@ -14,10 +14,10 @@ const colors = ['red', 'orange', 'amber', 'yellow', 'lime', 'green', 'emerald', 
 const neutrals = ['slate', 'gray', 'zinc', 'neutral', 'stone']
 
 const user = ref({
-  name: 'Benjamin Canac',
+  name: 'jin tang',
   avatar: {
-    src: 'https://github.com/benjamincanac.png',
-    alt: 'Benjamin Canac'
+    icon: 'i-lucide-user',
+    alt: 'User'
   }
 })
 
@@ -31,10 +31,6 @@ const items = computed<DropdownMenuItem[][]>(() => ([[{
 }, {
   label: 'Billing',
   icon: 'i-lucide-credit-card'
-}, {
-  label: 'Settings',
-  icon: 'i-lucide-settings',
-  to: '/settings'
 }], [{
   label: 'Theme',
   icon: 'i-lucide-palette',
@@ -106,29 +102,6 @@ const items = computed<DropdownMenuItem[][]>(() => ([[{
       e.preventDefault()
     }
   }]
-}], [{
-  label: 'Templates',
-  icon: 'i-lucide-layout-template',
-  children: [{
-    label: 'Starter',
-    to: 'https://starter-vue-template.nuxt.dev/'
-  }, {
-    label: 'Dashboard',
-    to: 'https://dashboard-vue-template.nuxt.dev/',
-    color: 'primary',
-    checked: true,
-    type: 'checkbox'
-  }]
-}], [{
-  label: 'Documentation',
-  icon: 'i-lucide-book-open',
-  to: 'https://ui.nuxt.com/docs/getting-started/installation/vue',
-  target: '_blank'
-}, {
-  label: 'GitHub repository',
-  icon: 'simple-icons:github',
-  to: 'https://github.com/nuxt-ui-templates/dashboard-vue',
-  target: '_blank'
 }], [{
   label: 'Log out',
   icon: 'i-lucide-log-out'

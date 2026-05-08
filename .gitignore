@@ -31,3 +31,4 @@ tsconfig.node.tsbuildinfo
 
 # Environment variables
 .env
+.claude

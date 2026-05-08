@@ -7,22 +7,10 @@ defineProps<{
 }>()
 
 const teams = ref([{
-  label: 'Vue',
+  label: 'My Team',
   avatar: {
-    src: 'https://github.com/vuejs.png',
-    alt: 'Vue'
-  }
-}, {
-  label: 'Vite',
-  avatar: {
-    src: 'https://github.com/vitejs.png',
-    alt: 'Vite'
-  }
-}, {
-  label: 'Vitest',
-  avatar: {
-    src: 'https://github.com/vitest-dev.png',
-    alt: 'Vitest'
+    icon: 'i-lucide-building-2',
+    alt: 'My Team'
   }
 }])
 const selectedTeam = ref(teams.value[0])
