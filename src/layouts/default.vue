@@ -1,3 +1,11 @@
+<!--
+ * @Author: jint jintang23@outlook.com
+ * @Date: 2026-05-08 21:52:54
+ * @LastEditors: jint jintang23@outlook.com
+ * @LastEditTime: 2026-05-08 22:01:02
+ * @FilePath: \nuxt-app\src\layouts\default.vue
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import type { NavigationMenuItem } from '@nuxt/ui'
@@ -5,7 +13,7 @@ import type { NavigationMenuItem } from '@nuxt/ui'
 const open = ref(false)
 
 const links = [[{
-  label: 'Home',
+  label: '首页',
   icon: 'i-lucide-house',
   to: '/',
   onSelect: () => {
@@ -15,7 +23,7 @@ const links = [[{
 
 const groups = computed(() => [{
   id: 'links',
-  label: 'Go to',
+  label: '跳转到',
   items: links.flat()
 }])
 </script>

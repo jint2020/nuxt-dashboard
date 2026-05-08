@@ -7,13 +7,13 @@ const { isNotificationsSlideoverOpen } = useDashboard()
 <template>
   <USlideover
     v-model:open="isNotificationsSlideoverOpen"
-    title="Notifications"
+    title="通知"
   >
     <template #body>
       <div class="flex flex-col items-center justify-center py-12 text-center">
         <UIcon name="i-lucide-bell-off" class="size-12 text-muted mb-3" />
         <p class="text-sm text-dimmed">
-          No notifications yet.
+          暂无通知
         </p>
       </div>
     </template>

@@ -7,10 +7,10 @@ defineProps<{
 }>()
 
 const teams = ref([{
-  label: 'My Team',
+  label: '我的团队',
   avatar: {
     icon: 'i-lucide-building-2',
-    alt: 'My Team'
+    alt: '我的团队'
   }
 }])
 const selectedTeam = ref(teams.value[0])
@@ -22,10 +22,10 @@ const items = computed<DropdownMenuItem[][]>(() => {
       selectedTeam.value = team
     }
   })), [{
-    label: 'Create team',
+    label: '创建团队',
     icon: 'i-lucide-circle-plus'
   }, {
-    label: 'Manage teams',
+    label: '管理团队',
     icon: 'i-lucide-cog'
   }]]
 })
