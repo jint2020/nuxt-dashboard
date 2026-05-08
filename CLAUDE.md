@@ -17,34 +17,51 @@ No test suite is configured in this project.
 
 ## Architecture
 
-This is a **Vite + Vue 3 dashboard** (not Nuxt, despite the repo name) built with [Nuxt UI v4](https://ui.nuxt.com/docs/getting-started/installation/vue) as the component library.
+This is a **Vite + Vue 3 dashboard framework shell** (not Nuxt, despite the repo name) built with [Nuxt UI v4](https://ui.nuxt.com/docs/getting-started/installation/vue) as the component library. All demo pages and mock data have been stripped — only the core framework infrastructure remains.
+
+### Project structure
+
+```
+src/
+├── main.ts                          # App entry (router, plugins)
+├── App.vue                          # Root component (UApp + dark mode)
+├── layouts/default.vue              # Dashboard shell (sidebar, search, notifications)
+├── pages/index.vue                  # Home page (empty panel)
+├── components/
+│   ├── TeamsMenu.vue                # Sidebar header — team selector
+│   ├── UserMenu.vue                 # Sidebar footer — user menu, theme/appearance switcher
+│   └── NotificationsSlideover.vue   # Notification panel (empty state)
+├── composables/useDashboard.ts      # Shared state + keyboard shortcuts
+├── types/index.d.ts                 # Domain types (currently empty)
+└── assets/css/main.css              # Tailwind + Nuxt UI + custom green palette
+```
 
 ### Routing
 
-File-based routing via `vite-plugin-vue-router` — files in `src/pages/` map directly to routes. Layouts are applied via `vite-plugin-vue-layouts`; the only layout is `src/layouts/default.vue`, which wraps all pages in a collapsible/resizable `UDashboardGroup` sidebar shell.
+File-based routing via `vue-router/vite` — files in `src/pages/` map directly to routes. Currently only `/` exists. Layouts are applied via `vite-plugin-vue-layouts`; the only layout is `src/layouts/default.vue`.
 
 ### Nuxt UI auto-imports
 
-`@nuxt/ui` registers all `U*` components and composables (`useToast`, `defineShortcuts`, `useColorMode`, etc.) globally — no manual imports are needed for them. These are resolved at build time by the Vite plugin.
+`@nuxt/ui` registers all `U*` components and composables (`useToast`, `defineShortcuts`, `useColorMode`, `useAppConfig`, etc.) globally — no manual imports needed. Custom components in `src/components/` are also auto-imported by the plugin.
 
 ### State / composables
 
-`src/composables/useDashboard.ts` is the central shared composable (via `createSharedComposable`). It owns the notifications slideover open state and registers keyboard shortcuts:
-- `g-h/g-i/g-c/g-s` — navigate to Home/Inbox/Customers/Settings
-- `n` — toggle notifications slideover
+`src/composables/useDashboard.ts` is the central shared composable (via `createSharedComposable`). It manages:
+- `isNotificationsSlideoverOpen` — notifications panel state
+- Keyboard shortcuts: `g-h` (go home), `n` (toggle notifications)
 
 ### Data
 
-Pages fetch data directly from the external API at `https://dashboard-template.nuxt.dev/api/` using `@vueuse/core`'s `useFetch`. There is no local backend or store.
-
-### Tables (Customers page)
-
-The customers table uses `@tanstack/table-core` (headless) wired to `UTable`. Column definitions use `h()` render functions to embed `UAvatar`, `UBadge`, `UButton`, etc. — Nuxt UI components must be resolved via `resolveComponent()` inside `<script setup>` before use in render functions.
+No external API calls or mock data. The project is a clean framework shell ready for custom backend integration.
 
 ### Styling
 
-Tailwind CSS v4. Primary color is `green`, neutral is `zinc` (configured in `vite.config.ts` → `ui()` plugin). Utility classes are used directly; no CSS modules.
+Tailwind CSS v4. Primary color is `green`, neutral is `zinc` (configured in `vite.config.ts` → `ui()` plugin). Font is `system-ui` (no external font loading). No external network dependencies — fully offline-capable.
+
+### UI Language
+
+All user-facing text is hardcoded in Chinese (中文). No i18n library is used.
 
 ### Types
 
-All domain types (`User`, `Mail`, `Member`, `Sale`, `Notification`, `Stat`, `Period`, `Range`) are defined in `src/types/index.d.ts`.
+`src/types/index.d.ts` is currently empty (`export {}`). Add domain types here as the project grows.
